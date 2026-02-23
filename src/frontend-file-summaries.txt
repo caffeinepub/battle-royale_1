@@ -1,0 +1,19 @@
+{
+  "frontend/src/App.tsx": "Main application component with TanStack Router setup, defining routes for home page (/) and game page (/game).",
+  "frontend/src/pages/HomePage.tsx": "Landing page with hero banner, feature cards, login/play button, and futuristic gaming aesthetic with purple/blue gradient theme, fixed shadow class conflict.",
+  "frontend/src/pages/GamePage.tsx": "Game page with responsive Canvas configuration (dpr support), touch controls overlay, and touch-none class to prevent unwanted mobile gestures.",
+  "frontend/src/components/GameWorld.tsx": "3D game environment using React Three Fiber with sky, ground, lighting, spawn markers, cover objects, and player controller integration.",
+  "frontend/src/components/PlayerController.tsx": "Handles first-person controls with automatic switching between pointer lock (desktop) and touch controls (mobile/tablet), supporting WASD/mouse and virtual joystick/drag gestures.",
+  "frontend/src/components/WeaponSystem.tsx": "Renders the player's weapon model in first-person view with muzzle flash effects and weapon bob animation.",
+  "frontend/src/components/GameHUD.tsx": "Responsive heads-up display with scaled UI elements for mobile, adaptive control instructions based on device type, and repositioned elements to avoid touch control overlays.",
+  "frontend/src/hooks/useQueries.ts": "React Query hooks for all backend operations including player state, spawning, position updates, damage, and fetching all players.",
+  "frontend/src/hooks/usePlayerSpawn.ts": "Custom hook that spawns the player at a random spawn point when entering the game and handles spawn errors.",
+  "frontend/src/hooks/usePlayerMovement.ts": "Manages player position state and throttles backend position updates to once per second to reduce network calls.",
+  "frontend/src/hooks/useWeaponControls.ts": "Handles weapon shooting state with fire rate limiting (200ms cooldown) and shooting feedback.",
+  "frontend/src/index.css": "Global styles with full viewport configuration for html/body, overflow hidden to prevent scrolling, and touch-action none for canvas to support mobile gameplay.",
+  "frontend/tailwind.config.js": "Tailwind configuration extended with custom gaming colors, glow shadows, Inter font family, and pulse-glow animation.",
+  "frontend/src/hooks/useDeviceDetection.ts": "Custom hook that detects device capabilities including touch support, screen size categories (mobile, tablet, desktop), and updates on resize/orientation changes.",
+  "frontend/src/hooks/useTouchControls.ts": "Manages touch control state for mobile gameplay including virtual joystick movement, camera rotation from drag gestures, and shooting triggers with proper touch event handling.",
+  "frontend/src/components/TouchControls.tsx": "Renders virtual joystick overlay in bottom-left, fire button in bottom-right, and camera control hint for touch-enabled devices only.",
+  "frontend/index.html": "HTML entry point with viewport meta tag configured for mobile devices to prevent zooming and ensure proper scaling."
+}

@@ -1,0 +1,109 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Add mobile and tablet responsive support for gameplay",
+  "requirements": [
+    {
+      "id": "REQ-7",
+      "summary": "Implement responsive viewport configuration to ensure the game canvas scales properly on phone and iPad screen sizes",
+      "acceptanceCriteria": [
+        "Game canvas fills the viewport correctly on mobile phone screens (portrait and landscape)",
+        "Game canvas fills the viewport correctly on iPad screens (portrait and landscape)",
+        "React Three Fiber canvas adapts to device pixel ratio for crisp rendering on mobile displays"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/GamePage.tsx",
+          "operation": "modify",
+          "description": "Update the React Three Fiber Canvas component to include responsive configuration with dpr={[1, 2]} for device pixel ratio support and ensure the canvas container uses full viewport dimensions with proper CSS for mobile scaling"
+        },
+        {
+          "path": "frontend/index.css",
+          "operation": "modify",
+          "description": "Add CSS rules to ensure html and body elements have height: 100%, width: 100%, and overflow: hidden to prevent scrolling during gameplay on mobile devices, and ensure the canvas container fills the viewport"
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Add touch controls overlay for mobile devices with virtual joystick for movement and tap-to-shoot functionality to replace WASD keyboard and mouse controls",
+      "acceptanceCriteria": [
+        "Virtual joystick appears on mobile devices for directional movement",
+        "Tap gesture on screen triggers weapon shooting",
+        "Touch controls are hidden on desktop devices with mouse and keyboard",
+        "Touch drag gestures control camera look direction"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/TouchControls.tsx",
+          "operation": "create",
+          "description": "Create a new TouchControls component that renders a virtual joystick overlay in the bottom-left corner for movement input and handles touch events for shooting and camera control. The component should detect if the device supports touch input and only render on touch-enabled devices. Export movement vector state and shooting events that can be consumed by PlayerController"
+        },
+        {
+          "path": "frontend/src/hooks/useTouchControls.ts",
+          "operation": "create",
+          "description": "Create a custom hook that manages touch control state including joystick position, camera rotation deltas from touch drag gestures, and shooting triggers. The hook should handle touch event listeners, calculate movement vectors from joystick input, and provide a clean API for the PlayerController to consume touch-based input"
+        },
+        {
+          "path": "frontend/src/pages/GamePage.tsx",
+          "operation": "modify",
+          "description": "Import and render the TouchControls component as an overlay on top of the Canvas, positioned absolutely to layer over the 3D scene while allowing touch events to propagate to both the controls and the Three.js scene"
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Optimize PlayerController component to detect device type and switch between pointer lock controls for desktop and touch controls for mobile/tablet",
+      "acceptanceCriteria": [
+        "Pointer lock controls activate only on devices with mouse input",
+        "Touch-based camera controls activate on mobile and tablet devices",
+        "Control scheme switches automatically based on available input methods"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/PlayerController.tsx",
+          "operation": "modify",
+          "description": "Add device detection logic to determine if the device supports touch input using window.matchMedia or navigator.maxTouchPoints. Conditionally enable PointerLockControls only on non-touch devices. For touch devices, disable pointer lock and instead consume camera rotation deltas from the useTouchControls hook. Update keyboard movement logic to also check for touch input vectors from the virtual joystick. Preserve existing WASD controls for desktop users"
+        },
+        {
+          "path": "frontend/src/hooks/useDeviceDetection.ts",
+          "operation": "create",
+          "description": "Create a custom hook that detects device capabilities including whether the device supports touch input, has a mouse, and the screen size category (mobile, tablet, desktop). Return boolean flags like isTouchDevice, isMobile, and isTablet for use in components"
+        }
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "summary": "Update GameHUD component to be responsive and scale UI elements appropriately for smaller mobile screens while maintaining readability",
+      "acceptanceCriteria": [
+        "Health bar, score, and weapon icons scale properly on phone screens",
+        "Controls info text adapts to show touch controls on mobile devices",
+        "Exit button remains accessible on all screen sizes",
+        "HUD elements do not overlap with touch control overlays"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/GameHUD.tsx",
+          "operation": "modify",
+          "description": "Add responsive Tailwind classes to scale HUD elements appropriately on mobile screens using sm:, md:, and lg: breakpoints. Adjust padding and spacing to prevent overlap with touch controls in the bottom-left corner. Update the controls info text to conditionally display touch control instructions on mobile devices and keyboard instructions on desktop. Use the useDeviceDetection hook to determine which control scheme to display. Ensure the exit button and all interactive elements have adequate touch target sizes (minimum 44x44px) for mobile usability"
+        }
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "summary": "Add viewport meta tag configuration to HomePage and GamePage to prevent unwanted zooming and ensure proper mobile rendering",
+      "acceptanceCriteria": [
+        "Viewport is configured with width=device-width and initial-scale=1",
+        "Pinch-to-zoom is disabled during gameplay to prevent accidental zoom gestures",
+        "Page renders at the correct scale on all mobile browsers"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/index.html",
+          "operation": "modify",
+          "description": "Update the viewport meta tag in the head section to include width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no to prevent unwanted zooming on mobile devices during gameplay while ensuring the page renders at the correct scale"
+        }
+      ]
+    }
+  ]
+}

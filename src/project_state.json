@@ -1,0 +1,120 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 5,
+  "summary": "A web-based shooter game similar to Fortnite",
+  "architectural_notes": [
+    "Web-based platform (browser game)",
+    "Shooter game genre with battle royale mechanics",
+    "Mobile and tablet responsive design required"
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-create-a-3d-game-environment-using-three-js-with-react-three-fiber-for-rendering-the-game-world",
+      "title": "Create a 3D game environment using Three.js with React Three Fiber for rendering the game world",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-first-person-or-third-person-camera-controls-allowing-players-to-look-around-and-move-through-the-3d-environment",
+      "title": "Implement first-person or third-person camera controls allowing players to look around and move through the 3D environment",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-player-character-model-with-basic-shooting-mechanics-including-weapon-aiming-and-firing",
+      "title": "Create a player character model with basic shooting mechanics including weapon aiming and firing",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-spawn-system-that-places-players-into-the-game-world-at-designated-spawn-points",
+      "title": "Create a spawn system that places players into the game world at designated spawn points",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-design-a-vibrant-futuristic-visual-theme-with-high-contrast-colors-bold-typography-and-dynamic-layouts-that-evoke-competitive-gaming-aesthetics",
+      "title": "Design a vibrant, futuristic visual theme with high-contrast colors, bold typography, and dynamic layouts that evoke competitive gaming aesthetics",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-responsive-viewport-configuration-to-ensure-the-game-canvas-scales-properly-on-phone-and-ipad-screen-sizes",
+      "title": "Implement responsive viewport configuration to ensure the game canvas scales properly on phone and iPad screen sizes",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-touch-controls-overlay-for-mobile-devices-with-virtual-joystick-for-movement-and-tap-to-shoot-functionality-to-replace-wasd-keyboard-and-mouse-controls",
+      "title": "Add touch controls overlay for mobile devices with virtual joystick for movement and tap-to-shoot functionality to replace WASD keyboard and mouse controls",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-optimize-playercontroller-component-to-detect-device-type-and-switch-between-pointer-lock-controls-for-desktop-and-touch-controls-for-mobile-tablet",
+      "title": "Optimize PlayerController component to detect device type and switch between pointer lock controls for desktop and touch controls for mobile/tablet",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-gamehud-component-to-be-responsive-and-scale-ui-elements-appropriately-for-smaller-mobile-screens-while-maintaining-readability",
+      "title": "Update GameHUD component to be responsive and scale UI elements appropriately for smaller mobile screens while maintaining readability",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-viewport-meta-tag-configuration-to-homepage-and-gamepage-to-prevent-unwanted-zooming-and-ensure-proper-mobile-rendering",
+      "title": "Add viewport meta tag configuration to HomePage and GamePage to prevent unwanted zooming and ensure proper mobile rendering",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Create web-based shooter game with Fortnite-style gameplay",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Implement game state management in the backend to track player positions, health, and match status",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Add mobile and tablet (phone/iPad) support for responsive gameplay",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "3d",
+  "projectName": "Battle Royale",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

@@ -1,0 +1,115 @@
+{
+  "kind": "build_request",
+  "title": "Add mobile and tablet responsive support for gameplay",
+  "projectName": "Battle Royale Shooter",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-7",
+      "text": "Implement responsive viewport configuration to ensure the game canvas scales properly on phone and iPad screen sizes",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-user-latest"
+        ],
+        "quotes": [
+          "Make sure you can play it on phone and iPad"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Game canvas fills the viewport correctly on mobile phone screens (portrait and landscape)",
+        "Game canvas fills the viewport correctly on iPad screens (portrait and landscape)",
+        "React Three Fiber canvas adapts to device pixel ratio for crisp rendering on mobile displays"
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Add touch controls overlay for mobile devices with virtual joystick for movement and tap-to-shoot functionality to replace WASD keyboard and mouse controls",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-user-latest"
+        ],
+        "quotes": [
+          "Make sure you can play it on phone and iPad"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Virtual joystick appears on mobile devices for directional movement",
+        "Tap gesture on screen triggers weapon shooting",
+        "Touch controls are hidden on desktop devices with mouse and keyboard",
+        "Touch drag gestures control camera look direction"
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "text": "Optimize PlayerController component to detect device type and switch between pointer lock controls for desktop and touch controls for mobile/tablet",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-user-latest"
+        ],
+        "quotes": [
+          "Make sure you can play it on phone and iPad"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Pointer lock controls activate only on devices with mouse input",
+        "Touch-based camera controls activate on mobile and tablet devices",
+        "Control scheme switches automatically based on available input methods"
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "text": "Update GameHUD component to be responsive and scale UI elements appropriately for smaller mobile screens while maintaining readability",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-user-latest"
+        ],
+        "quotes": [
+          "Make sure you can play it on phone and iPad"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Health bar, score, and weapon icons scale properly on phone screens",
+        "Controls info text adapts to show touch controls on mobile devices",
+        "Exit button remains accessible on all screen sizes",
+        "HUD elements do not overlap with touch control overlays"
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "text": "Add viewport meta tag configuration to HomePage and GamePage to prevent unwanted zooming and ensure proper mobile rendering",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-user-latest"
+        ],
+        "quotes": [
+          "Make sure you can play it on phone and iPad"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Viewport is configured with width=device-width and initial-scale=1",
+        "Pinch-to-zoom is disabled during gameplay to prevent accidental zoom gestures",
+        "Page renders at the correct scale on all mobile browsers"
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not modify backend/main.mo as mobile support is purely a frontend concern",
+    "Preserve existing desktop keyboard and mouse controls for non-mobile users",
+    "Touch controls must not interfere with Three.js pointer events and raycasting"
+  ],
+  "nonGoals": [
+    "Native mobile app development",
+    "Gyroscope-based controls",
+    "Haptic feedback integration",
+    "Mobile-specific performance optimizations beyond responsive rendering"
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}
